@@ -41,9 +41,23 @@ void ATankPlayerController::AimTowardsCrosshair()
 {
     if(!GetControlledTank()) {return;}
     
-    //Get world location if linetrace trough crosshair
-    //If it hits the lanscape
+    FVector HitLocation; //Out Parameter
+    if(GetSightRayHitLocation(HitLocation)) //Has a side-effect, is going to line trace
+    {
+    UE_LOG(LogTemp, Warning, TEXT("HitLocation %s"), *HitLocation.ToString());
+    
+    
+    
+    //
         //Tell the controller to aim to this point
+    }
+}
+
+//Get world location of linetrace trough crosshair, true if it hits the lanscape
+bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) const
+{
+    OutHitLocation = FVector(1.0);
+    return true;
 }
 
 
