@@ -3,6 +3,7 @@
 #include "TankPlayerController.h"
 
 
+
 void ATankPlayerController::BeginPlay()
 {
     Super::BeginPlay();
@@ -25,9 +26,6 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
     //Super
     Super::Tick(DeltaTime);
-    
-    //UE_LOG(LogTemp, Warning, TEXT("Player Controller ticking"))
-    
     AimTowardsCrosshair();
     
 }
